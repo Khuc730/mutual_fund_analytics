@@ -1,0 +1,191 @@
+Data Quality Summary
+
+Total CSV Files found : 10
+
+================================================================================
+FILE: 01_fund_master.csv
+================================================================================
+
+Shape:
+(40, 15)
+
+Wrong Data Types:
+launch_date               str 
+
+
+Missing Values: 0
+
+
+Duplicate rows: 0
+
+================================================================================
+FILE: 02_nav_history.csv
+================================================================================
+
+Shape:
+(46000, 3)
+
+Wrong Data Types:
+date             str
+
+
+Missing Values: 0
+
+
+Duplicate rows: 0
+
+================================================================================
+FILE: 03_aum_by_fund_house.csv
+================================================================================
+
+Shape:
+(90, 5)
+
+Wrong Data Types:
+date                  str
+
+
+Missing Values: 0
+
+
+Duplicate rows: 0
+
+================================================================================
+FILE: 04_monthly_sip_inflows.csv
+================================================================================
+
+Shape:
+(48, 6)
+
+Wrong Data Types:
+month                            str
+
+
+Missing Values:
+yoy_growth_pct               12
+***REASON : Year-over-Year growth requires data from the 
+        same month of the previous year. For the first 12 months,
+        previous-year data is unavailable, so these missing values
+        are expected and do not indicate a data quality issue***
+
+Duplicate rows: 0
+
+================================================================================
+FILE: 05_category_inflows.csv
+================================================================================
+
+Shape:
+(144, 3)
+
+Wrong Data Types:
+month                   str
+
+
+Missing Values: 0
+
+Duplicate rows: 0
+
+================================================================================
+FILE: 06_industry_folio_count.csv
+================================================================================
+
+Shape:
+(21, 6)
+
+Wrong Data Types:
+month                      str
+
+
+
+
+Missing Values: 0
+
+Duplicate rows: 0
+
+================================================================================
+FILE: 07_scheme_performance.csv
+================================================================================
+
+Shape:
+(40, 19)
+
+Data Types:
+
+
+Missing Values: 0
+
+Duplicate rows: 0
+
+================================================================================
+FILE: 08_investor_transactions.csv
+================================================================================
+
+Shape:
+(32778, 13)
+
+Data Types:
+transaction_date          str
+
+
+Missing Values: 0
+
+Duplicate rows
+0
+
+================================================================================
+FILE: 09_portfolio_holdings.csv
+================================================================================
+
+Shape:
+(322, 8)
+
+Data Types:
+portfolio_date           str
+
+
+Missing Values: 0
+
+Duplicate rows: 0
+
+================================================================================
+FILE: 10_benchmark_indices.csv
+================================================================================
+
+Shape:
+(8050, 3)
+
+Data Types:
+date               str
+
+
+Missing Values: 0
+
+Duplicate rows: 0
+
+=================================================================================
+
+Observations:
+
+1. All datasets loaded successfully.
+2. No duplicate records found.
+3. No missing values found except:
+   - 04_monthly_sip_inflows.csv
+   - Column: yoy_growth_pct
+   - Missing Values: 12
+
+Reason:
+Year-over-Year growth cannot be calculated for the first 12 months due to lack of prior-year data.
+
+Additional Observations:
+- Date columns are currently stored as strings and should be converted to datetime during preprocessing.
+- Dataset quality is excellent.
+
+AMFI Code Validation Summary
+
+Total schemes in fund_master: 40
+Total schemes in nav_history: 40
+Missing scheme codes: 0
+
+Conclusion:
+All AMFI scheme codes in the fund master dataset are present in the NAV history dataset
+The referential integrity between the two datasets is maintained, indicating high data quality.
